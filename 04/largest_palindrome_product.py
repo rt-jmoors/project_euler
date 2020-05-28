@@ -7,12 +7,16 @@
 three_digits = [*range(1000, 99, -1)]
 
 num_found = False
+palindromes = []
 for x in three_digits:
     for y in three_digits:
         product = str(x * y)
         if product == product[::-1]:
-            num_found = True
-            print(product)
-            break
-    if num_found:
-        break
+            # print(x, y)
+            # num_found = True
+            palindromes.append((int(product), x, y))
+            # print(product)
+            # break
+
+print(len(palindromes))
+print(max(palindromes))
