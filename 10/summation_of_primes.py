@@ -19,6 +19,7 @@ while primes[-1] < limit:
         if number > limit:
             break
         else:
+            print(number)
             primes.append(number)
 
     prime = True
