@@ -2,7 +2,7 @@ def compute_adjacents(matrix):
     """
     Compute  all combinations of products in the matrix in directions up,down, left, right or diagonally
 
-    :param matrix: a 4 x 4 numpy array
+    :param matrix: typically a 4 x 4 numpy array (although can be any size)
     :return:
     """
     products = []
