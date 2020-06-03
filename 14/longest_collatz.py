@@ -14,12 +14,6 @@
 # NOTE: Once the chain starts the terms are allowed to go above one million.
 import datetime
 
-begin_time = datetime.datetime.now()
-
-start_n = 1000000
-chain_length = 0
-max_chain = (start_n, chain_length)
-
 
 def collatz(number):
     """Returns the next Collatz number in the sequence"""
@@ -34,7 +28,9 @@ def collatz(number):
         return 3 * number + 1
 
 
-limit = 1000000
+begin_time = datetime.datetime.now()
+
+limit = 100000
 # all_chains = {num : num_terms_in_collatz_chain}
 all_chains = {1: 1, 2: 2}
 i = 1
@@ -66,3 +62,5 @@ while i < limit:
 
 max_key = max(all_chains, key=all_chains.get)
 print(max_key, all_chains[max_key])
+
+print(datetime.datetime.now() - begin_time)
