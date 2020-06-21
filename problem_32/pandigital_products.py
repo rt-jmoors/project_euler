@@ -19,8 +19,9 @@ def is_product(mult1, mult2, product):
         return True
     return False
 
-
+import datetime
 import itertools
+begin_time = datetime.datetime.now()
 
 strng = '123456789'
 
@@ -30,11 +31,15 @@ for i in itertools.permutations(list(strng)):
 
 products = []
 for x in perms:
+    # 2 is subtracted because to have 3 complete terms, we need at least 2 digits for the multiplicand/multiplier
     for i in range(0, len(x) - 2):
-        product = int(x[-1-i:])
+        # Select product from the end of the numbers
+        product = int(x[-1 - i:])
         for j in range(0, len(x) - 2 - i):
-            multiplicand = int(x[0:j+1])
-            multiplier = int(x[j+1:-1-i])
+            # Multiplicand is at least 1 number, starting from the beginning of the numbers
+            multiplicand = int(x[0:j + 1])
+            # The multiplier is the numbers remaining between the multiplicand and the product
+            multiplier = int(x[j + 1:-1 - i])
             if is_product(multiplicand, multiplier, product):
                 print(multiplicand, '*', multiplier, '=', product)
                 if product not in products:
@@ -42,5 +47,4 @@ for x in perms:
 
 print('Sum of pandigital products =', sum(products))
 
-
-
+print(datetime.datetime.now() - begin_time)
